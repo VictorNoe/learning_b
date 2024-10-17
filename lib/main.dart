@@ -1,8 +1,22 @@
-import 'package:flutter/material.dart';
-import 'package:learning_b/widgets/home.dart';
-import 'package:learning_b/widgets/splash_screen.dart';
+import 'dart:async';
 
-void main() {
+import 'package:flutter/material.dart';
+import 'package:learning_b/modules/auth/screens/create_accunt.dart';
+import 'package:learning_b/modules/auth/screens/login.dart';
+import 'package:learning_b/navigation/home.dart';
+import 'package:learning_b/navigation/navigation.dart';
+import 'package:learning_b/navigation/profile.dart';
+import 'package:learning_b/navigation/reservations.dart';
+import 'package:learning_b/navigation/top.dart';
+import 'package:learning_b/widgets/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MainApp());
 }
 
@@ -16,7 +30,13 @@ class MainApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
+        '/login': (context) => const Login(),
+        '/register': (context) => const CreateAccount(),
+        '/menu': (context) => const Navigation(),
         '/home': (context) => const Home(),
+        '/top': (context) => const Top(),
+        '/reservaciones': (context) => const Reservaciones(),
+        '/profile': (context) => const Profile(),
       },
     );
   }

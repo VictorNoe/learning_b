@@ -1,4 +1,8 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"  xmlns:tools="http://schemas.android.com/tools">
+    <uses-sdk
+        android:minSdkVersion="19"
+        tools:overrideLibrary="io.flutter.plugins.firebase.auth"
+    />
     <application
         android:label="learning_b"
         android:name="${applicationName}"
